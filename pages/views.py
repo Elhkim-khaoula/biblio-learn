@@ -17,7 +17,7 @@ def accueil(request):
             "Mini-cours"
         ],
 
-        "nb_ressources": 0
+        "nb_ressources": 15
     }
 
     return render(request, "pages/accueil.html", contexte)
