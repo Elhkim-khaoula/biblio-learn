@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block title %}Contact - BiblioLearn{% endblock %}
+
+{% block content %}
+
+    <h2>Contactez-nous</h2>
+
+    <p>
+        Vous avez une question ou une suggestion ?
+        Envoyez-nous votre message.
+    </p>
+
+    {% if message_confirmation %}
+
+        <p>
+            {{ message_confirmation }}
+        </p>
+
+        <a href="{% url 'pages:accueil' %}">
+            Retour à l'accueil
+        </a>
+
+    {% else %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ formulaire.as_p }}
+
+            <button type="submit">
+                Envoyer
+            </button>
+
+        </form>
+
+    {% endif %}
+
+{% endblock %}
