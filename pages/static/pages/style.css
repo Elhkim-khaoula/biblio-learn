@@ -1,72 +1,314 @@
 
-/* Style général */
+/* ==============================
+   BIBLIOLEARN - MODERN DESIGN
+   ============================== */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #6c63ff;
+    --secondary: #8b5cf6;
+    --accent: #00d4aa;
+    --dark: #17172e;
+    --text: #45455c;
+    --light: #f5f6ff;
+    --white: #ffffff;
+    --shadow: 0 12px 35px rgba(40, 35, 100, 0.10);
+    --radius: 18px;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* En-tête */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* ==============================
+   HEADER & NAVIGATION
+   ============================== */
 
 header {
-    background-color: #243b55;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background: linear-gradient(120deg, #17172e, #373078, #6c63ff);
+    color: var(--white);
+    padding: 22px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 5px 25px rgba(23, 23, 46, 0.2);
 }
 
-/* Menu */
+header h1 {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header h1::before {
+    content: "✦ ";
+    color: var(--accent);
+}
 
 nav {
-    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 nav a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    color: #f0c674;
+    background: var(--white);
+    color: var(--primary);
+    transform: translateY(-3px);
 }
 
-/* Contenu */
+/* ==============================
+   MAIN CONTENT
+   ============================== */
 
 main {
-    background-color: white;
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px;
+    width: 84%;
+    max-width: 1150px;
+    min-height: 65vh;
+    margin: 55px auto;
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: var(--dark);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    letter-spacing: -1.5px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 5px;
+    margin-top: 13px;
     border-radius: 10px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
-/* Titres */
-
-h2, h3 {
-    color: #243b55;
+h3 {
+    color: var(--dark);
+    font-size: 21px;
+    margin: 35px 0 15px;
+    font-weight: 700;
 }
 
-/* Boutons et liens */
+p {
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+/* ==============================
+   LISTS & MODULES
+   ============================== */
+
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+    margin: 22px 0;
+}
+
+li {
+    background: var(--white);
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #eeeeff;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-7px);
+    border-color: var(--primary);
+    box-shadow: 0 18px 35px rgba(108, 99, 255, 0.15);
+}
+
+/* ==============================
+   LINKS & BUTTONS
+   ============================== */
+
+a {
+    color: var(--primary);
+}
+
+main a {
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+main a:hover {
+    color: var(--secondary);
+}
 
 button {
-    background-color: #243b55;
-    color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.25);
+    transition: all 0.3s ease;
 }
 
-/* Pied de page */
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(108, 99, 255, 0.35);
+}
+
+/* ==============================
+   CONTACT FORM
+   ============================== */
+
+form {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 22px;
+    max-width: 700px;
+    box-shadow: var(--shadow);
+    border: 1px solid #eeeeff;
+    margin-top: 25px;
+}
+
+form p {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e1e2f0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    background: #fafaff;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.10);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
 
 footer {
-    background-color: #243b55;
-    color: white;
+    background: var(--dark);
+    color: #c5c5df;
     text-align: center;
-    padding: 15px;
+    padding: 30px 15px;
+    margin-top: 70px;
+}
+
+footer p {
+    margin: 5px;
+    font-size: 13px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 22px 5%;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    main {
+        width: 90%;
+        margin: 35px auto;
+    }
+
+    form {
+        padding: 22px;
+    }
+
+    ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
